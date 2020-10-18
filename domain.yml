@@ -1,0 +1,140 @@
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true
+
+intents:
+- affirm
+- ask_budget
+- ask_email
+- restaurant_search
+- greet
+- goodbye
+- stop
+
+entities:
+- cuisine
+- location
+- people
+- price
+- budget
+- email
+
+slots:
+  cuisine:
+    type: text
+    influence_conversation: true
+  location:
+    type: text
+    influence_conversation: true
+  budget:
+    type: float
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true
+  location_validity:
+    type: categorical
+    values:
+    - valid
+    - invalid
+  cuisine_validity:
+    type: categorical
+    values:
+    - valid
+    - invalid
+  avail_mail_service:
+    type: categorical
+    values:
+    - yes
+    - no
+
+responses:
+  utter_ask_cuisine:
+  - text: What kind of cuisine would you like?
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: Mexican
+      title: Mexican
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+
+  utter_ask_budget:
+  - text: What would be your preferred budget?
+  - buttons:
+    - payload: <300
+      title: <300
+    - payload: 300-700
+      title: 300-700
+    - payload: ">700"
+      title: ">700"
+
+  utter_avail_mail_service:
+  - text: Would you like me to send an email with details of restaurants?
+
+  utter_ask_email:
+  - text: Please provide your email id.
+
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+
+  utter_ask_location:
+  - text: In what location?
+
+  utter_default:
+  - text: i cannot understand
+
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+
+  utter_ask_location_retry:
+  - text: Will you like to search for some other location?
+  - text: Can I help you look for a restaurant at some other location?
+
+  utter_confirm_email:
+  - text: An email has been sent to you.
+
+  utter_cuisine_invalid:
+  - text: Sorry. We do not serve the requested cuisine.
+
+  utter_location_invalid:
+  - text: Sorry, we do not serve at the requested location.
+
+  utter_email_invalid:
+  - text: Sorry, the email you provided doesn't seem to be valid.
+
+  utter_ask_location_retry:
+  - text: Will you like to search for some other location?
+  - text: Can I help you look for a restaurant at some other location?
+
+  utter_ask_cuisine_retry:
+  - text: Will you like to search for some other cuisine?
+  - text: Can I help you look for some other cuisine today?
+
+actions:
+- action_search_restaurants
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_ask_email
+- utter_ask_budget
+- utter_ask_location_retry
+- utter_confirm_email
+- utter_cuisine_invalid
+- utter_location_invalid
+- utter_email_invalid
+
+version: '2.0'
