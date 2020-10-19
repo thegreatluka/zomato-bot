@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet, AllSlotsReset
+import pandas as pd
 import zomatopy
 import json
 
@@ -35,7 +36,7 @@ class ActionSearchRestaurants(Action):
 			cuisine_dict.values()).index(cuisine.lower())]
 
 		results = zomato.restaurant_search(
-			"", lat, lon, str(cuisineId), 5)
+			"", lat, lon, str(cuisineId), limit=500)
 
 		d = json.loads(results)
 		response = ""
@@ -45,25 +46,46 @@ class ActionSearchRestaurants(Action):
 			filtered_rest = self.filter_restaurant_by_budget(
 				budget, d['restaurants'])
 
-			print('Length of filtered : ',len(filtered_rest))
+			print('Length of filtered : ', len(filtered_rest))
+
+			rest_dict = {'Name': [], 'Address': [],
+						 'Rating': [], 'Cast for Two': []}
+			for rest in filtered_rest:
+				rest_dict['Name'].append(rest["restaurant"]["name"])
+				rest_dict['Address'].append(
+					rest["restaurant"]["location"]["address"])
+				rest_dict['Rating'].append(
+					rest["restaurant"]["user_rating"]["aggregate_rating"])
+				rest_dict['Cast for Two'].append(
+					rest["restaurant"]["average_cost_for_two"])
+
+			rest_df = pd.DataFrame.from_dict(rest_dict)
+			sorted_df = rest_df.sort_values(by=['Rating'], ascending=False)
+
+			if(sorted_df.shape[0] > 5):
+				sorted_df = sorted_df.head(5)
 			
-			for index in range(0, len(filtered_rest)):
-				restaurant = filtered_rest[index]
+			print(sorted_df)
+
+			order = 1
+			for index in sorted_df.iterrows():
 				response = (response + "\n   "
-							+ str(index + 1)
+							+ str(order)
 							+ ". "
-							+ restaurant["restaurant"]["name"]
+							+ sorted_df['Name'][index[0]]
 							+ " in "
-							+ restaurant["restaurant"]["location"]["address"]
+							+ sorted_df['Address'][index[0]]
 							+ " has been rated "
-							+ restaurant["restaurant"]["user_rating"]["aggregate_rating"]
+							+ sorted_df['Rating'][index[0]]
 							+ " out of 5"
 							+ "\n")
+				order += 1
 
 		dispatcher.utter_message("-----"+response)
 		return [SlotSet('location', loc)]
 
 	def filter_restaurant_by_budget(self, budget, restaurant_list):
+		print('Length of Unfiltered : ', len(restaurant_list))
 		filtered_restaurant_list = []
 		rangeMin = 0
 		rangeMax = 999999
@@ -80,7 +102,6 @@ class ActionSearchRestaurants(Action):
 			rangeMax = 9999
 
 		for restaurant in restaurant_list:
-			print(restaurant)
 			avg_cost = int(restaurant["restaurant"]["average_cost_for_two"])
 
 			if avg_cost >= rangeMin and avg_cost <= rangeMax:
