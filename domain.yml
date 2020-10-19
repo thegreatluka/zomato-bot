@@ -50,7 +50,6 @@ slots:
 
 responses:
   utter_ask_cuisine:
-  - text: What kind of cuisine would you like?
   - buttons:
     - payload: Chinese
       title: Chinese
@@ -62,16 +61,17 @@ responses:
       title: South Indian
     - payload: North Indian
       title: North Indian
+    text: What kind of cuisine would you like?
 
   utter_ask_budget:
-  - text: What would be your preferred budget?
   - buttons:
-    - payload: <300
-      title: <300
-    - payload: 300-700
-      title: 300-700
-    - payload: ">700"
-      title: ">700"
+    - payload: Less than 300
+      title: Less than 300
+    - payload: Between 300 and 700
+      title: Between 300 and 700
+    - payload: Greater than 700
+      title: Greater than 700
+    text: What would be your preferred budget?
 
   utter_avail_mail_service:
   - text: Would you like me to send an email with details of restaurants?
@@ -113,16 +113,15 @@ responses:
   utter_email_invalid:
   - text: Sorry, the email you provided doesn't seem to be valid.
 
-  utter_ask_location_retry:
-  - text: Will you like to search for some other location?
-  - text: Can I help you look for a restaurant at some other location?
-
   utter_ask_cuisine_retry:
   - text: Will you like to search for some other cuisine?
   - text: Can I help you look for some other cuisine today?
 
 actions:
 - action_search_restaurants
+- action_validate_location
+- action_validate_cuisine
+- action_slot_reset
 - utter_ask_cuisine
 - utter_ask_howcanhelp
 - utter_ask_location
