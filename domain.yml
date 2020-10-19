@@ -27,7 +27,7 @@ slots:
     type: text
     influence_conversation: true
   budget:
-    type: float
+    type: text
     influence_conversation: true
   email:
     type: text
@@ -51,6 +51,8 @@ slots:
 responses:
   utter_ask_cuisine:
   - buttons:
+    - payload: American
+      title: American
     - payload: Chinese
       title: Chinese
     - payload: Italian
@@ -65,11 +67,11 @@ responses:
 
   utter_ask_budget:
   - buttons:
-    - payload: Less than 300
+    - payload: '299'
       title: Less than 300
-    - payload: Between 300 and 700
+    - payload: '700'
       title: Between 300 and 700
-    - payload: Greater than 700
+    - payload: '701'
       title: Greater than 700
     text: What would be your preferred budget?
 

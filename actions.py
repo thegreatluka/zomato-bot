@@ -10,6 +10,7 @@ import json
 config = {"user_key": "acfcf315ed54c498179910378808b0c7"}
 DEFAULT_DATA_PATH = 'data'
 
+
 class ActionSearchRestaurants(Action):
 	def name(self):
 		return 'action_search_restaurants'
@@ -19,26 +20,73 @@ class ActionSearchRestaurants(Action):
 		zomato = zomatopy.initialize_app(config)
 		loc = tracker.get_slot('location')
 		cuisine = tracker.get_slot('cuisine')
+		budget = tracker.get_slot('budget')
+
 		location_detail = zomato.get_location(loc, 1)
-		d1 = json.loads(location_detail)
-		lat = d1["location_suggestions"][0]["latitude"]
-		lon = d1["location_suggestions"][0]["longitude"]
-		cuisines_dict = {'bakery': 5, 'chinese': 25, 'cafe': 30,
-			'italian': 55, 'biryani': 7, 'north indian': 50, 'south indian': 85}
+		location_json = json.loads(location_detail)
+		lat = location_json["location_suggestions"][0]["latitude"]
+		lon = location_json["location_suggestions"][0]["longitude"]
+
+		# Get {CuisineId:CuisineName} mapping for given City.
+		cityId = location_json['location_suggestions'][0]['city_id']
+		cuisine_dict = zomato.get_cuisines(cityId)
+		cuisine_dict = dict((k, v.lower()) for k, v in cuisine_dict.items())
+		cuisineId = list(cuisine_dict.keys())[list(
+			cuisine_dict.values()).index(cuisine.lower())]
+
 		results = zomato.restaurant_search(
-			"", lat, lon, str(cuisines_dict.get(cuisine)), 5)
+			"", lat, lon, str(cuisineId), 5)
+
 		d = json.loads(results)
 		response = ""
 		if d['results_found'] == 0:
 			response = "no results"
 		else:
-			for restaurant in d['restaurants']:
-				response = response + "Found " + \
-					restaurant['restaurant']['name'] + " in " + \
-						restaurant['restaurant']['location']['address']+"\n"
+			filtered_rest = self.filter_restaurant_by_budget(
+				budget, d['restaurants'])
+
+			print('Length of filtered : ',len(filtered_rest))
+			
+			for index in range(0, len(filtered_rest)):
+				restaurant = filtered_rest[index]
+				response = (response + "\n   "
+							+ str(index + 1)
+							+ ". "
+							+ restaurant["restaurant"]["name"]
+							+ " in "
+							+ restaurant["restaurant"]["location"]["address"]
+							+ " has been rated "
+							+ restaurant["restaurant"]["user_rating"]["aggregate_rating"]
+							+ " out of 5"
+							+ "\n")
 
 		dispatcher.utter_message("-----"+response)
 		return [SlotSet('location', loc)]
+
+	def filter_restaurant_by_budget(self, budget, restaurant_list):
+		filtered_restaurant_list = []
+		rangeMin = 0
+		rangeMax = 999999
+
+		if budget == "299":
+			rangeMax = 299
+		elif budget == "700":
+			rangeMin = 300
+			rangeMax = 700
+		elif budget == "701":
+			rangeMin = 701
+		else:
+			rangeMin = 0
+			rangeMax = 9999
+
+		for restaurant in restaurant_list:
+			print(restaurant)
+			avg_cost = int(restaurant["restaurant"]["average_cost_for_two"])
+
+			if avg_cost >= rangeMin and avg_cost <= rangeMax:
+				filtered_restaurant_list.append(restaurant)
+
+		return filtered_restaurant_list
 
 
 class ActionValidateLocation(Action):
@@ -63,8 +111,10 @@ class ActionValidateLocation(Action):
 					tier1_cities = data["data"]["tier1"]
 					tier2_cities = data["data"]["tier2"]
 
-					tier1_cities_lower = [city.lower() for city in tier1_cities]
-					tier2_cities_lower = [city.lower() for city in tier2_cities]
+					tier1_cities_lower = [city.lower()
+										  for city in tier1_cities]
+					tier2_cities_lower = [city.lower()
+										  for city in tier2_cities]
 
 					location_validity = (
 						"invalid"
@@ -76,7 +126,6 @@ class ActionValidateLocation(Action):
 					location_validity = "invalid"
 
 		return [SlotSet("location_validity", location_validity)]
-
 
 
 class ActionValidateCuisine(Action):
@@ -105,12 +154,11 @@ class ActionValidateCuisine(Action):
 			)
 
 		return [SlotSet("cuisine_validity", cuisine_validity)]
-		
 
-		
-class ActionSlotReset(Action): 
-	def name(self): 
-		return 'action_slot_reset' 
 
-	def run(self, dispatcher, tracker, domain): 
+class ActionSlotReset(Action):
+	def name(self):
+		return 'action_slot_reset'
+
+	def run(self, dispatcher, tracker, domain):
 		return[AllSlotsReset()]

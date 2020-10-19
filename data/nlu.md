@@ -70,6 +70,9 @@
 - please show me a few [italian](cuisine) restaurants in [bangalore](location)
 - show me [italian](cuisine) restaurants
 - bhubaneswar[]{"entity": "location", "value": "bhubaneswar"}
+- [299](budget)
+- [700](budget)
+- [701](budget)
 
 ## synonym:4
 - four
