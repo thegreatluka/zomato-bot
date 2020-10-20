@@ -18,6 +18,7 @@ entities:
 - price
 - budget
 - email
+- email_payload
 
 slots:
   cuisine:
@@ -30,6 +31,9 @@ slots:
     type: text
     influence_conversation: true
   email:
+    type: text
+    influence_conversation: true
+  email_payload:
     type: text
     influence_conversation: true
   location_validity:
@@ -123,6 +127,7 @@ actions:
 - action_search_restaurants
 - action_validate_location
 - action_validate_cuisine
+- action_send_mail
 - action_slot_reset
 - utter_ask_cuisine
 - utter_ask_howcanhelp

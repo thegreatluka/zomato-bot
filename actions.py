@@ -4,6 +4,9 @@ from __future__ import unicode_literals
 
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet, AllSlotsReset
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import pandas as pd
 import zomatopy
 import json
@@ -49,7 +52,7 @@ class ActionSearchRestaurants(Action):
 			print('Length of filtered : ', len(filtered_rest))
 
 			rest_dict = {'Name': [], 'Address': [],
-						 'Rating': [], 'Cast for Two': []}
+									 'Rating': [], 'Cast for Two': []}
 			for rest in filtered_rest:
 				rest_dict['Name'].append(rest["restaurant"]["name"])
 				rest_dict['Address'].append(
@@ -63,8 +66,8 @@ class ActionSearchRestaurants(Action):
 			sorted_df = rest_df.sort_values(by=['Rating'], ascending=False)
 
 			if(sorted_df.shape[0] > 5):
-				sorted_df = sorted_df.head(5)
-			
+				sorted_df = sorted_df.head(5).reset_index(drop=True)
+
 			print(sorted_df)
 
 			order = 1
@@ -82,7 +85,14 @@ class ActionSearchRestaurants(Action):
 				order += 1
 
 		dispatcher.utter_message("-----"+response)
-		return [SlotSet('location', loc)]
+		return [SlotSet("email_payload", """\
+								<html>
+  								<head></head>
+  								<body>
+								{0}
+  								</body>
+								</html>
+								""".format(sorted_df.to_html()))]
 
 	def filter_restaurant_by_budget(self, budget, restaurant_list):
 		print('Length of Unfiltered : ', len(restaurant_list))
@@ -175,6 +185,42 @@ class ActionValidateCuisine(Action):
 			)
 
 		return [SlotSet("cuisine_validity", cuisine_validity)]
+
+
+class ActionSendMail(Action):
+	def name(self):
+		return "action_send_mail"
+
+	def run(self, dispatcher, tracker, domain):
+
+		email_Id = tracker.get_slot('email')
+		email_Payload = tracker.get_slot('email_payload')
+		mail_content = '''Hello,
+		Here are your requested Top 5 Restaurants ordered by average user ratings.
+		
+		Thank You'''
+
+		# The mail addresses and password
+		sender_address = 'sender@gmail.com'
+		sender_pass = 'pass'
+		receiver_address = email_Id
+		# Setup the MIME
+		message = MIMEMultipart()
+		message['From'] = sender_address
+		message['To'] = receiver_address
+		# The subject line
+		message['Subject'] = 'Here are your requested Top 5 Restaurants :)'
+		# The body and the attachments for the mail
+		message.attach(MIMEText(mail_content, 'plain'))
+		message.attach(MIMEText(email_Payload, 'html'))
+		# Create SMTP session for sending the mail
+		session = smtplib.SMTP('smtp.gmail.com', 587)  # use gmail with port
+		session.starttls()  # enable security
+		session.login(sender_address, sender_pass)  # login with mail_id and password
+		text = message.as_string()
+		session.sendmail(sender_address, receiver_address, text)
+		session.quit()
+		print('Mail Sent')
 
 
 class ActionSlotReset(Action):
