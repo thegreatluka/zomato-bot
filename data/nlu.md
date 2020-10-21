@@ -11,6 +11,8 @@
 - great choice
 - sounds really good
 - thanks
+- [Yes](avail_mail_service)
+- [Yes](avail_mail_service)
 
 ## intent:goodbye
 - bye
@@ -77,6 +79,12 @@
 - [No](avail_mail_service)
 - [Sure](avail_mail_service)
 - [Nope](avail_mail_service)
+- [^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$](email)
+- find me restaurant
+- [pune](location)
+- [sourav.sunil2004@gmail.com](email)
+- find me [chinese](cuisine) restaurants in [hyderabad](location) with budget [500](budget)
+- [sourav.sunil2004@gmail.com](email)
 
 ## synonym:4
 - four

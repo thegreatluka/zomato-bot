@@ -10,6 +10,7 @@ from email.mime.text import MIMEText
 import pandas as pd
 import zomatopy
 import json
+import re
 
 config = {"user_key": "acfcf315ed54c498179910378808b0c7"}
 DEFAULT_DATA_PATH = 'data'
@@ -52,7 +53,7 @@ class ActionSearchRestaurants(Action):
 			print('Length of filtered : ', len(filtered_rest))
 
 			rest_dict = {'Name': [], 'Address': [],
-									 'Rating': [], 'Cast for Two': []}
+						 'Rating': [], 'Cast for Two': []}
 			for rest in filtered_rest:
 				rest_dict['Name'].append(rest["restaurant"]["name"])
 				rest_dict['Address'].append(
@@ -187,6 +188,28 @@ class ActionValidateCuisine(Action):
 		return [SlotSet("cuisine_validity", cuisine_validity)]
 
 
+class ActionValidateEmail(Action):
+	def name(self):
+		return "action_validate_email"
+
+	def run(self, dispatcher, tracker, domain):
+
+		email = tracker.get_slot("email")
+		email_validity = "valid"
+
+		if not email:
+			email_validity = "invalid"
+		else:
+			regex = "^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$"
+			if(re.search(regex, email)):
+				email_validity = "valid"
+
+			else:
+				email_validity = "invalid"
+
+		return [SlotSet("email_validity", email_validity)]
+
+
 class ActionSendMail(Action):
 	def name(self):
 		return "action_send_mail"
@@ -202,7 +225,7 @@ class ActionSendMail(Action):
 
 		# The mail addresses and password
 		sender_address = 'sourav.patel9000@gmail.com'
-		sender_pass = 'fff'
+		sender_pass = ''
 		receiver_address = email_Id
 		# Setup the MIME
 		message = MIMEMultipart()
@@ -216,7 +239,8 @@ class ActionSendMail(Action):
 		# Create SMTP session for sending the mail
 		session = smtplib.SMTP('smtp.gmail.com', 587)  # use gmail with port
 		session.starttls()  # enable security
-		session.login(sender_address, sender_pass)  # login with mail_id and password
+		# login with mail_id and password
+		session.login(sender_address, sender_pass)
 		text = message.as_string()
 		session.sendmail(sender_address, receiver_address, text)
 		session.quit()
