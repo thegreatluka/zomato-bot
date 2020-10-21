@@ -73,6 +73,10 @@
 - [299](budget)
 - [700](budget)
 - [701](budget)
+- [Yes](avail_mail_service)
+- [No](avail_mail_service)
+- [Sure](avail_mail_service)
+- [Nope](avail_mail_service)
 
 ## synonym:4
 - four

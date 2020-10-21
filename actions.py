@@ -100,12 +100,12 @@ class ActionSearchRestaurants(Action):
 		rangeMin = 0
 		rangeMax = 999999
 
-		if budget == "299":
+		if int(budget) <= 299:
 			rangeMax = 299
-		elif budget == "700":
+		elif int(budget) >= 300 and int(budget) <= 700:
 			rangeMin = 300
 			rangeMax = 700
-		elif budget == "701":
+		elif int(budget) >= 701:
 			rangeMin = 701
 		else:
 			rangeMin = 0
@@ -201,8 +201,8 @@ class ActionSendMail(Action):
 		Thank You'''
 
 		# The mail addresses and password
-		sender_address = 'sender@gmail.com'
-		sender_pass = 'pass'
+		sender_address = 'sourav.patel9000@gmail.com'
+		sender_pass = 'fff'
 		receiver_address = email_Id
 		# Setup the MIME
 		message = MIMEMultipart()

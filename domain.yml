@@ -80,7 +80,12 @@ responses:
     text: What would be your preferred budget?
 
   utter_avail_mail_service:
-  - text: Would you like me to send an email with details of restaurants?
+  - buttons:
+    - payload: 'Yes'
+      title: Sure
+    - payload: 'No'
+      title: No need
+    text: Would you like me to send an email with details of restaurants?
 
   utter_ask_email:
   - text: Please provide your email id.
