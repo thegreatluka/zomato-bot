@@ -88,8 +88,11 @@
 - find me [amurican](cuisine) restaurants
 - i meant [american](cuisine)
 - [bangalore]{"entity": "location", "value": "Bengaluru"}
-- [700](budget)
 - [acb.com](email)
+- [sourav.patel51@gmail.com](email)
+- show me [mexican](cuisine) restaurants in [oyeoye](location)
+- how about in [bhopal](location)
+- [299](budget)
 - [sourav.patel51@gmail.com](email)
 
 ## synonym:4

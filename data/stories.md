@@ -125,3 +125,37 @@
     - reset_slots
 * affirm
     - utter_goodbye
+
+## interactive_story_1
+* restaurant_search{"cuisine": "mexican", "location": "oyeoye"}
+    - slot{"cuisine": "mexican"}
+    - slot{"location": "oyeoye"}
+    - action_validate_location
+    - slot{"location_validity": "invalid"}
+    - utter_location_invalid
+    - utter_ask_location_retry
+* restaurant_search{"location": "bhopal"}
+    - slot{"location": "bhopal"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "299"}
+    - slot{"budget": "299"}
+    - action_search_restaurants
+    - slot{"email_payload": "\t\t\t\t\t\t\t\t<html>\n  \t\t\t\t\t\t\t\t<head></head>\n  \t\t\t\t\t\t\t\t<body>\n\t\t\t\t\t\t\t\t<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Name</th>\n      <th>Address</th>\n      <th>Rating</th>\n      <th>Cast for Two</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>Total Refreshing Point</td>\n      <td>Campion School Shahpura, Bhopal, Arera Colony, Bhopal</td>\n      <td>3.8</td>\n      <td>200</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>Hotel Atishay</td>\n      <td>Mezzanine Floor, R 55, Zone 1, Maharana Pratap Nagar, Bhopal</td>\n      <td>3.8</td>\n      <td>200</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Mr. Petu</td>\n      <td>Shop no. 7 , hawkers corner 6 no. Bus stop shivaji nagar bhopal</td>\n      <td>3.5</td>\n      <td>200</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Desi Fusion By Firangi Cafe</td>\n      <td>Shop 3, 35 Zone-2, MP Nagar, Bhopal, Maharana Pratap Nagar, Bhopal</td>\n      <td>0.0</td>\n      <td>250</td>\n    </tr>\n  </tbody>\n</table>\n  \t\t\t\t\t\t\t\t</body>\n\t\t\t\t\t\t\t\t</html>\n\t\t\t\t\t\t\t\t"}
+    - utter_avail_mail_service
+* affirm{"avail_mail_service": "Yes"}
+    - slot{"avail_mail_service": "Yes"}
+    - utter_ask_email
+* restaurant_search{"email": "sourav.patel51@gmail.com"}
+    - slot{"email": "sourav.patel51@gmail.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots
+* affirm
+    - utter_goodbye

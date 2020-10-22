@@ -64,13 +64,14 @@ class ActionSearchRestaurants(Action):
 					rest["restaurant"]["average_cost_for_two"])
 
 			rest_df = pd.DataFrame.from_dict(rest_dict)
+			rest_df['Rating'] = rest_df['Rating'].astype(float)
 			sorted_df = rest_df.sort_values(by=['Rating'], ascending=False)
 
 			if(sorted_df.shape[0] > 5):
 				sorted_df = sorted_df.head(5).reset_index(drop=True)
 
 			print(sorted_df)
-
+			sorted_df['Rating'] = sorted_df['Rating'].astype(str)
 			order = 1
 			for index in sorted_df.iterrows():
 				response = (response + "\n   "
