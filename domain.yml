@@ -2,8 +2,8 @@ session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- affirm
 - restaurant_search
+- affirm
 - greet
 - ask_budget
 - ask_email
@@ -123,6 +123,8 @@ responses:
   utter_ask_cuisine_retry:
   - text: Will you like to search for some other cuisine?
   - text: Can I help you look for some other cuisine today?
+  utter_ask_email_retry:
+  - text: Please provide a valid email id.
 actions:
 - action_search_restaurants
 - action_send_mail
@@ -132,7 +134,9 @@ actions:
 - action_validate_location
 - utter_ask_budget
 - utter_ask_cuisine
+- utter_ask_cuisine_retry
 - utter_ask_email
+- utter_ask_email_retry
 - utter_ask_howcanhelp
 - utter_ask_location
 - utter_ask_location_retry

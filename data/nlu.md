@@ -84,16 +84,23 @@
 - [pune](location)
 - [sourav.sunil2004@gmail.com](email)
 - find me [chinese](cuisine) restaurants in [hyderabad](location) with budget [500](budget)
-- [sourav.sunil2004@gmail.com](email)
+- can you [send me an email](avail_mail_service) with [italian](cuisine) restaurants in [pune](location) costing around [600](budget)
+- find me [amurican](cuisine) restaurants
+- i meant [american](cuisine)
+- [bangalore]{"entity": "location", "value": "Bengaluru"}
+- [700](budget)
+- [acb.com](email)
+- [sourav.patel51@gmail.com](email)
 
 ## synonym:4
 - four
 
+## synonym:Bengaluru
+- bangalore
+
 ## synonym:Delhi
 - New Delhi
-
-## synonym:bangalore
-- Bengaluru
+- Delhi NCR
 
 ## synonym:chinese
 - chines
