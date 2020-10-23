@@ -12,7 +12,6 @@
 - sounds really good
 - thanks
 - [Yes](avail_mail_service)
-- [Yes](avail_mail_service)
 
 ## intent:goodbye
 - bye
@@ -33,6 +32,7 @@
 - good morning
 - good evening
 - dear sir
+- yo
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -92,18 +92,56 @@
 - [sourav.patel51@gmail.com](email)
 - show me [mexican](cuisine) restaurants in [oyeoye](location)
 - how about in [bhopal](location)
+- find me some [north indian](cuisine) thali
+- [punjab](location)
+- how about [amritsar](location)
+- i'm craving ffor some [south indian](cuisine) food
+- [chennai](location)
+- [sourav.patel9000@gmail.com](email)
+- i'm craving for [chaat](cuisine)
+- find me [chaats](cuisine)
+- i'm craving for some [biryani](cuisine)
+- I'm craving for some [biryani](cuisine)
+- how about [arabian](cuisine)
+- give me some [north indian](cuisine) then
+- [patna](location)
+- [souravpatel51@gmail.com](email)
+- get me something [mexican](cuisine)
+- [bhubaneswar](location)
+- find me something [chinese](cuisine)
+- [asansol](location)
 - [299](budget)
-- [sourav.patel51@gmail.com](email)
+- [No](avail_mail_service)
+- find me something [mexican](cuisine) as well
+- [allahabad](location)
 
 ## synonym:4
 - four
 
+## synonym:Ahmedabad
+- Ahemdabad
+
 ## synonym:Bengaluru
 - bangalore
+- banglore
+
+## synonym:Chennai
+- Madras
 
 ## synonym:Delhi
 - New Delhi
 - Delhi NCR
+- Dilli
+
+## synonym:Hyderabad
+- Hydrabad
+
+## synonym:Kolkata
+- Calcutta
+
+## synonym:Mumbai
+- Bombay
+- Bumbai
 
 ## synonym:chinese
 - chines

@@ -2,9 +2,9 @@ session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
+- greet
 - restaurant_search
 - affirm
-- greet
 - ask_budget
 - ask_email
 - goodbye
@@ -14,7 +14,6 @@ entities:
 - budget
 - cuisine
 - email
-- email_payload
 - location
 - people
 - price
@@ -40,9 +39,6 @@ slots:
     - invalid
     - __other__
   email:
-    type: text
-    influence_conversation: true
-  email_payload:
     type: text
     influence_conversation: true
   email_validity:

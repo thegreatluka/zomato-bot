@@ -15,7 +15,6 @@ import re
 config = {"user_key": "acfcf315ed54c498179910378808b0c7"}
 DEFAULT_DATA_PATH = 'data'
 
-
 class ActionSearchRestaurants(Action):
 	def name(self):
 		return 'action_search_restaurants'
@@ -40,7 +39,7 @@ class ActionSearchRestaurants(Action):
 			cuisine_dict.values()).index(cuisine.lower())]
 
 		results = zomato.restaurant_search(
-			"", lat, lon, str(cuisineId), limit=500)
+			"", lat, lon, str(cuisineId), sortby="rating", orderby="desc",limit=100)
 
 		d = json.loads(results)
 		response = ""
@@ -64,37 +63,37 @@ class ActionSearchRestaurants(Action):
 					rest["restaurant"]["average_cost_for_two"])
 
 			rest_df = pd.DataFrame.from_dict(rest_dict)
-			rest_df['Rating'] = rest_df['Rating'].astype(float)
-			sorted_df = rest_df.sort_values(by=['Rating'], ascending=False)
 
-			if(sorted_df.shape[0] > 5):
-				sorted_df = sorted_df.head(5).reset_index(drop=True)
+			if(rest_df.shape[0] > 5):
+				rest_df = rest_df.head(5).reset_index(drop=True)
 
-			print(sorted_df)
-			sorted_df['Rating'] = sorted_df['Rating'].astype(str)
+			print(rest_df)
+			rest_df['Rating'] = rest_df['Rating'].astype(str)
 			order = 1
-			for index in sorted_df.iterrows():
+			for index in rest_df.iterrows():
 				response = (response + "\n   "
 							+ str(order)
 							+ ". "
-							+ sorted_df['Name'][index[0]]
+							+ rest_df['Name'][index[0]]
 							+ " in "
-							+ sorted_df['Address'][index[0]]
+							+ rest_df['Address'][index[0]]
 							+ " has been rated "
-							+ sorted_df['Rating'][index[0]]
+							+ rest_df['Rating'][index[0]]
 							+ " out of 5"
 							+ "\n")
 				order += 1
 
 		dispatcher.utter_message("-----"+response)
-		return [SlotSet("email_payload", """\
-								<html>
-  								<head></head>
-  								<body>
-								{0}
-  								</body>
-								</html>
-								""".format(sorted_df.to_html()))]
+		global email_payload
+		email_payload = """\<html>
+  							<head></head>
+  							<body>
+							{0}
+  							</body>
+							</html>
+							""".format(rest_df.to_html())
+		print(email_payload)
+		return 
 
 	def filter_restaurant_by_budget(self, budget, restaurant_list):
 		print('Length of Unfiltered : ', len(restaurant_list))
@@ -218,7 +217,8 @@ class ActionSendMail(Action):
 	def run(self, dispatcher, tracker, domain):
 
 		email_Id = tracker.get_slot('email')
-		email_Payload = tracker.get_slot('email_payload')
+		email_Payload = email_payload
+		print(email_Payload)
 		mail_content = '''Hello,
 		Here are your requested Top 5 Restaurants ordered by average user ratings.
 		
