@@ -10,149 +10,148 @@
 5. python -m spacy link en_core_web_md en
 
 # Requirements : 
-absl-py==0.10.0
-aiofiles==0.5.0
-aiohttp==3.6.3
-APScheduler==3.6.3
-astunparse==1.6.3
-async-generator==1.10
-async-timeout==3.0.1
-attrs==20.2.0
-blis==0.4.1
-boto3==1.16.2
-botocore==1.19.2
-cachetools==4.1.1
-catalogue==1.0.0
-certifi==2020.6.20
-cffi==1.14.3
-chardet==3.0.4
-cloudpickle==1.4.1
-colorclass==2.2.0
-coloredlogs==14.0
-colorhash==1.0.2
-cryptography==3.1.1
-cycler==0.10.0
-cymem==2.0.3
-decorator==4.4.2
-dm-tree==0.1.5
-dnspython==1.16.0
-docopt==0.6.2
-en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.2.5/en_core_web_md-2.2.5.tar.gz
-fbmessenger==6.0.0
-future==0.18.2
-gast==0.3.3
-google-auth==1.22.1
-google-auth-oauthlib==0.4.1
-google-pasta==0.2.0
-grpcio==1.33.1
-h11==0.9.0
-h5py==2.10.0
-httpcore==0.11.1
-httplib2==0.18.1
-httptools==0.1.1
-httpx==0.15.4
-humanfriendly==8.2
-idna==2.10
-importlib-metadata==2.0.0
-jmespath==0.10.0
-joblib==0.15.1
-jsonpickle==1.4.1
-jsonschema==3.2.0
-kafka-python==2.0.2
-Keras-Preprocessing==1.1.2
-kiwisolver==1.2.0
-Markdown==3.3.2
-matplotlib==3.3.2
-mattermostwrapper==2.2
-multidict==4.7.6
-murmurhash==1.0.2
-networkx==2.5
-numpy==1.18.5
-oauth2client==4.1.3
-oauthlib==3.1.0
-opt-einsum==3.3.0
-packaging==20.4
-pandas==1.1.3
-pika==1.1.0
-Pillow==8.0.0
-plac==1.1.3
-preshed==3.0.2
-prompt-toolkit==2.0.10
-protobuf==3.13.0
-psycopg2-binary==2.8.6
-pyasn1==0.4.8
-pyasn1-modules==0.2.8
-pycparser==2.20
-pydot==1.4.1
-PyJWT==1.7.1
-pykwalify==1.7.0
-pymongo==3.10.1
-pyparsing==2.4.7
-pyrsistent==0.17.3
-PySocks==1.7.1
-python-crfsuite==0.9.7
-python-dateutil==2.8.1
-python-engineio==3.13.2
-python-socketio==4.6.0
-python-telegram-bot==12.8
-pytz==2020.1
-PyYAML==5.3.1
-questionary==1.5.2
-rasa==2.0.1
-rasa-sdk==2.0.0
-redis==3.5.3
-regex==2020.9.27
-requests==2.24.0
-requests-oauthlib==1.3.0
-requests-toolbelt==0.9.1
-rfc3986==1.4.0
-rocketchat-API==1.9.1
-rsa==4.6
-ruamel.yaml==0.16.12
-ruamel.yaml.clib==0.2.2
-s3transfer==0.3.3
-sanic==20.9.0
-Sanic-Cors==0.10.0.post3
-sanic-jwt==1.4.1
-Sanic-Plugins-Framework==0.9.4.post1
-scikit-learn==0.23.2
-scipy==1.5.3
-sentry-sdk==0.17.8
-six==1.15.0
-sklearn-crfsuite==0.3.6
-slackclient==2.9.3
-sniffio==1.2.0
-socks==0
-spacy==2.2.4
-SQLAlchemy==1.3.20
-srsly==1.0.2
-tabulate==0.8.7
-tensorboard==2.3.0
-tensorboard-plugin-wit==1.7.0
-tensorflow==2.3.1
-tensorflow-addons==0.11.2
-tensorflow-estimator==2.3.0
-tensorflow-hub==0.9.0
-tensorflow-probability==0.11.1
-tensorflow-text==2.3.0
-termcolor==1.1.0
-terminaltables==3.1.0
-thinc==7.4.0
-threadpoolctl==2.1.0
-tornado==6.0.4
-tqdm==4.50.2
-twilio==6.45.4
-typeguard==2.10.0
-typing-extensions==3.7.4.3
-tzlocal==2.1
-ujson==3.2.0
-urllib3==1.25.11
-uvloop==0.14.0
-wasabi==0.8.0
-wcwidth==0.2.5
-webexteamssdk==1.6
-websockets==8.1
-Werkzeug==1.0.1
-wrapt==1.12.1
-yarl==1.5.1
-zipp==3.3.1
+absl-py==0.10.0<br />
+aiofiles==0.5.0<br />
+aiohttp==3.6.3<br />
+APScheduler==3.6.3<br />
+astunparse==1.6.3<br />
+async-generator==1.10<br />
+async-timeout==3.0.1<br />
+attrs==20.2.0<br />
+blis==0.4.1<br />
+boto3==1.16.2<br />
+botocore==1.19.2<br />
+cachetools==4.1.1<br />
+catalogue==1.0.0<br />
+certifi==2020.6.20<br />
+cffi==1.14.3<br />
+chardet==3.0.4<br />
+cloudpickle==1.4.1<br />
+colorclass==2.2.0<br />
+coloredlogs==14.0<br />
+colorhash==1.0.2<br />
+cryptography==3.1.1<br />
+cycler==0.10.0<br />
+cymem==2.0.3<br />
+decorator==4.4.2<br />
+dm-tree==0.1.5<br />
+dnspython==1.16.0<br />
+docopt==0.6.2<br />
+en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.2.5/en_core_web_md-2.2.5.tar.gz<br />
+fbmessenger==6.0.0<br />
+future==0.18.2<br />
+gast==0.3.3<br />
+google-auth==1.22.1<br />
+google-auth-oauthlib==0.4.1<br />
+google-pasta==0.2.0<br />
+grpcio==1.33.1<br />
+h11==0.9.0<br />
+h5py==2.10.0<br />
+httpcore==0.11.1<br />
+httplib2==0.18.1<br />
+httptools==0.1.1<br />
+httpx==0.15.4<br />
+humanfriendly==8.2<br />
+idna==2.10<br />
+importlib-metadata==2.0.0<br />
+jmespath==0.10.0<br />
+joblib==0.15.1<br />
+jsonpickle==1.4.1<br />
+jsonschema==3.2.0<br />
+kafka-python==2.0.2<br />
+Keras-Preprocessing==1.1.2<br />
+kiwisolver==1.2.0<br />
+Markdown==3.3.2<br />
+matplotlib==3.3.2<br />
+mattermostwrapper==2.2<br />
+multidict==4.7.6<br />
+murmurhash==1.0.2<br />
+networkx==2.5<br />
+numpy==1.18.5<br />
+oauth2client==4.1.3<br />
+oauthlib==3.1.0<br />
+opt-einsum==3.3.0<br />
+packaging==20.4<br />
+pandas==1.1.3<br />
+pika==1.1.0<br />
+Pillow==8.0.0<br />
+plac==1.1.3<br />
+preshed==3.0.2<br />
+prompt-toolkit==2.0.10<br />
+protobuf==3.13.0<br />
+psycopg2-binary==2.8.6<br />
+pyasn1==0.4.8<br />
+pyasn1-modules==0.2.8<br />
+pycparser==2.20<br />
+pydot==1.4.1<br />
+PyJWT==1.7.1<br />
+pykwalify==1.7.0<br />
+pymongo==3.10.1<br />
+pyparsing==2.4.7<br />
+pyrsistent==0.17.3<br />
+PySocks==1.7.1<br />
+python-crfsuite==0.9.7<br />
+python-dateutil==2.8.1<br />
+python-engineio==3.13.2<br />
+python-socketio==4.6.0<br />
+python-telegram-bot==12.8<br />
+pytz==2020.1<br />
+PyYAML==5.3.1<br />
+questionary==1.5.2<br />
+rasa==2.0.1<br />
+rasa-sdk==2.0.0<br />
+redis==3.5.3<br />
+regex==2020.9.27<br />
+requests==2.24.0<br />
+requests-oauthlib==1.3.0<br />
+requests-toolbelt==0.9.1<br />
+rfc3986==1.4.0<br />
+rocketchat-API==1.9.1<br />
+rsa==4.6<br />
+ruamel.yaml==0.16.12<br />
+ruamel.yaml.clib==0.2.2<br />
+s3transfer==0.3.3<br />
+sanic==20.9.0<br />
+Sanic-Cors==0.10.0.post3<br />
+sanic-jwt==1.4.1<br />
+Sanic-Plugins-Framework==0.9.4.post1<br />
+scikit-learn==0.23.2<br />
+scipy==1.5.3<br />
+sentry-sdk==0.17.8<br />
+six==1.15.0<br />
+sklearn-crfsuite==0.3.6<br />
+slackclient==2.9.3<br />
+sniffio==1.2.0<br />
+spacy==2.2.4<br />
+SQLAlchemy==1.3.20<br />
+srsly==1.0.2<br />
+tabulate==0.8.7<br />
+tensorboard==2.3.0<br />
+tensorboard-plugin-wit==1.7.0<br />
+tensorflow==2.3.1<br />
+tensorflow-addons==0.11.2<br />
+tensorflow-estimator==2.3.0<br />
+tensorflow-hub==0.9.0<br />
+tensorflow-probability==0.11.1<br />
+tensorflow-text==2.3.0<br />
+termcolor==1.1.0<br />
+terminaltables==3.1.0<br />
+thinc==7.4.0<br />
+threadpoolctl==2.1.0<br />
+tornado==6.0.4<br />
+tqdm==4.50.2<br />
+twilio==6.45.4<br />
+typeguard==2.10.0<br />
+typing-extensions==3.7.4.3<br />
+tzlocal==2.1<br />
+ujson==3.2.0<br />
+urllib3==1.25.11<br />
+uvloop==0.14.0<br />
+wasabi==0.8.0<br />
+wcwidth==0.2.5<br />
+webexteamssdk==1.6<br />
+websockets==8.1<br />
+Werkzeug==1.0.1<br />
+wrapt==1.12.1<br />
+yarl==1.5.1<br />
+zipp==3.3.1<br />
