@@ -39,7 +39,7 @@ class ActionSearchRestaurants(Action):
 			cuisine_dict.values()).index(cuisine.lower())]
 
 		results = zomato.restaurant_search(
-			"", lat, lon, str(cuisineId), sortby="rating", orderby="desc",limit=60)
+			"", lat, lon, str(cuisineId), sortby="rating", orderby="desc",start = 0 , limit=20)
 
 		d = json.loads(results)
 		response = ""
@@ -48,7 +48,15 @@ class ActionSearchRestaurants(Action):
 		else:
 			filtered_rest = self.filter_restaurant_by_budget(
 				budget, d['restaurants'])
-
+			start = 20
+			while (len(filtered_rest) <=10 and start <= 80):
+				d = json.loads(zomato.restaurant_search("", lat, lon, str(cuisineId), sortby="rating", orderby="desc",start = start , limit=20))
+				if d['results_found'] == 0:
+					print("Results is null for start ", start)
+					break
+				filtered_rest.extend(self.filter_restaurant_by_budget(budget, d['restaurants']))
+				start+= 20
+			
 			print('Length of filtered : ', len(filtered_rest))
 
 			if len(filtered_rest) == 0: 
