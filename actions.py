@@ -39,7 +39,7 @@ class ActionSearchRestaurants(Action):
 			cuisine_dict.values()).index(cuisine.lower())]
 
 		results = zomato.restaurant_search(
-			"", lat, lon, str(cuisineId), sortby="rating", orderby="desc",limit=100)
+			"", lat, lon, str(cuisineId), sortby="rating", orderby="desc",limit=60)
 
 		d = json.loads(results)
 		response = ""
@@ -221,15 +221,15 @@ class ActionSendMail(Action):
 
 		email_Id = tracker.get_slot('email')
 		email_Payload = email_payload
-		print(email_Payload)
+		# print(email_Payload)
 		mail_content = '''Hello,
 		Here are your requested Top 5 Restaurants ordered by average user ratings.
 		
 		Thank You'''
 
 		# The mail addresses and password
-		sender_address = 'sourav.patel9000@gmail.com'
-		sender_pass = ''
+		sender_address = 'rasabot92@gmail.com'
+		sender_pass = 'rasaPassword123'
 		receiver_address = email_Id
 		# Setup the MIME
 		message = MIMEMultipart()

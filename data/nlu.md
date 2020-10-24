@@ -12,7 +12,6 @@
 - sounds really good
 - thanks
 - [Yes](avail_mail_service)
-- [Yes](avail_mail_service)
 
 ## intent:goodbye
 - bye
@@ -114,11 +113,48 @@
 - find me something [mexican](cuisine) as well
 - [allahabad](location)
 - find me something [italian](cuisine) in [Gurgaon](location)
-- [700](budget)
-- [sourav.patel9000@gmail.com](email)
+- find me [cheap]{"entity": "budget", "value": "299"} restaurants in [Bombay]{"entity": "location", "value": "Mumbai"}
+- find me [cheapest]{"entity": "budget", "value": "299"} restaurants in [Calcutta]{"entity": "location", "value": "Kolkata"}
+- find me [pocket-friendly]{"entity": "budget", "value": "299"} restaurants in [Bombay]{"entity": "location", "value": "Mumbai"}
+- find me [wallet-friendly]{"entity": "budget", "value": "299"} restaurants in [Bombay]{"entity": "location", "value": "Mumbai"}
+- find me [expensive]{"entity": "budget", "value": "701"} [italian](cuisine) restaurants in [pune](location)
+- find me [high-end]{"entity": "budget", "value": "701"} [italian](cuisine) restaurants in [pune](location)
+- find me [high end]{"entity": "budget", "value": "701"} [italian](cuisine) restaurants in [pune](location)
+- find me [high-cost]{"entity": "budget", "value": "701"} [italian](cuisine) restaurants in [pune](location)
+- find me [highcost]{"entity": "budget", "value": "701"} [italian](cuisine) restaurants in [pune](location)
+- any [low end]{"entity": "budget", "value": "299"} restaurants in [patna](location)
+- any [pocket friendly]{"entity": "budget", "value": "299"} restaurants in [patna](location)
+- any [wallet friendly]{"entity": "budget", "value": "299"} restaurants in [patna](location)
+- any [mid range]{"entity": "budget", "value": "700"} restaurants in [patna](location)
+- any [mid-range]{"entity": "budget", "value": "700"} restaurants in [patna](location)
+- any [average]{"entity": "budget", "value": "700"} restaurants in [patna](location)
+
+- [South Indian](cuisine)
+- [No](avail_mail_service)
+
+## synonym:299
+- cheap
+- cheapest
+- pocket-friendly
+- wallet-friendly
+- pocket friendly
+- wallet friendly
+- low cost
+- low end
 
 ## synonym:4
 - four
+
+## synonym:700
+- average
+- mid range
+
+## synonym:701
+- expensive
+- high-end
+- high-cost
+- high end
+- high cost
 
 ## synonym:Ahmedabad
 - Ahemdabad
@@ -143,6 +179,7 @@
 
 ## synonym:Mumbai
 - Bombay
+- bombay
 - Bumbai
 
 ## synonym:chinese

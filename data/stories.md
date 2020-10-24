@@ -329,3 +329,69 @@
     - reset_slots
 * affirm
     - utter_goodbye
+
+* restaurant_search{"budget": "299", "location": "Mumbai"}
+    - slot{"budget": "299"}
+    - slot{"location": "Mumbai"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "South Indian"}
+    - slot{"cuisine": "South Indian"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* affirm{"avail_mail_service": "Yes"}
+    - slot{"avail_mail_service": "Yes"}
+    - utter_ask_email
+* restaurant_search{"email": "sourav.patel9000@gmail.com"}
+    - slot{"email": "sourav.patel9000@gmail.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots
+
+* restaurant_search{"budget": "701", "cuisine": "italian", "location": "pune"}
+    - slot{"budget": "701"}
+    - slot{"cuisine": "italian"}
+    - slot{"location": "pune"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* affirm{"avail_mail_service": "Yes"}
+    - slot{"avail_mail_service": "Yes"}
+    - utter_ask_email
+* restaurant_search{"email": "sourav.sunil2004@gmail.com"}
+    - slot{"email": "sourav.sunil2004@gmail.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots
+* affirm
+    - utter_goodbye
+
+* restaurant_search{"budget": "299", "location": "patna"}
+    - slot{"budget": "299"}
+    - slot{"location": "patna"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "South Indian"}
+    - slot{"cuisine": "South Indian"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "No"}
+    - slot{"avail_mail_service": "No"}
+    - action_slot_reset
+    - reset_slots
+    - utter_goodbye
