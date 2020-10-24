@@ -2,9 +2,9 @@
 
 # Installation Instructions : 
 1. Create a new Python environment for Python 3.7.9
-2. Install rasa 2.0 using pip install rasa 
-   2.1. If you get any warnings here to insstall numpy < 1.19 so do pip install numpy==1.18.5
-   2.2. If you get any warnings for other modules ensure to install the specific version mentioned below.
+2. Install rasa 2.0 using pip install rasa<br />
+   2.1. If you get any warnings here to install numpy < 1.19 so do pip install numpy==1.18.5<br />
+   2.2. If you get any warnings for other modules ensure to install the specific version mentioned below.<br />
 3. pip install rasa[spacy]
 4. python -m spacy download en_core_web_md
 5. python -m spacy link en_core_web_md en
