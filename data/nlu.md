@@ -1,16 +1,30 @@
 ## intent:affirm
 - yes
+- ya
+- yas
+- sure
 - yep
 - yeah
 - indeed
+- yes please
+- nice
 - that's right
+- thats right
 - ok
+- okey
+- okies
 - great
+- perfect
+- cool
+- fine
+- right
 - right, thank you
 - correct
 - great choice
 - sounds really good
 - thanks
+- absolutely
+- fine 
 - [Yes](avail_mail_service)
 
 ## intent:goodbye
@@ -21,16 +35,28 @@
 - end
 - farewell
 - Bye bye
+- ciao
+- good night
+- laters
+- night night
 - have a good one
 
 ## intent:greet
 - hey
 - howdy
+- hola
 - hey there
+- hi there
+- whatsup
+- whats up
 - hello
+- hello there
 - hi
+- hii
+- heya
 - good morning
 - good evening
+- good afternoon
 - dear sir
 - yo
 
@@ -157,36 +183,103 @@
 - highcost
 - high cost
 
+## synonym:chinese
+- chines
+- Chinese
+- Chines
+
+## synonym:south indian
+- south-indian
+- southindian
+- south-indina
+- South Indian
+ 
+## synonym:north indian
+- north-indian
+- northindian
+- north-indina
+- North Indian
+
+## synonym:mexican
+- mexicun
+- mehico
+- mexicano
+
+## synonym:american
+- america
+- americun
+- americana
+
+## synonym:italian
+- talian
+- italiun
+- continental
+
 ## synonym:Ahmedabad
 - Ahemdabad
+- ahemdbad
+- ahemadabad
 
 ## synonym:Bengaluru
 - bangalore
 - banglore
+- bnglore
+- bengluru
 
 ## synonym:Chennai
 - Madras
+- chenai
+- madrass
+
 
 ## synonym:Delhi
 - New Delhi
 - Delhi NCR
 - Dilli
+- newdelhi
+- nayidilli
 
 ## synonym:Hyderabad
 - Hydrabad
+- hyd
+- hydrebad
 
 ## synonym:Kolkata
 - Calcutta
+- kolkuta
 
 ## synonym:Mumbai
 - Bombay
 - bombay
 - Bumbai
 
-## synonym:chinese
-- chines
-- Chinese
-- Chines
+## synonym:Mysore
+- mysoru
+- mysuru
+- Mysuru
+
+## synonym:Kochi
+- kochi
+- cochin
+- ernakulam
+
+## synonym:Visakhapatnam
+- vizag
+- vishakapatnam
+
+## synonym:Thiruvananthapuram
+- trivandrum
+- travancore
+- thiruvandapuram
+
+## synonym:Amritsar
+- amritser
+- amratsar
+- amritsur
+
+## synonym:Chandigarh
+- chandigad
+- chandighar
 
 ## synonym:mid
 - moderate
@@ -197,6 +290,9 @@
 
 ## regex:greet
 - hey[^\s]*
+
+## regex:greet
+- bye[^\s]*
 
 ## regex:pincode
 - [0-9]{6}
