@@ -12,6 +12,7 @@
 - sounds really good
 - thanks
 - [Yes](avail_mail_service)
+- [Yes](avail_mail_service)
 
 ## intent:goodbye
 - bye
@@ -110,10 +111,11 @@
 - [bhubaneswar](location)
 - find me something [chinese](cuisine)
 - [asansol](location)
-- [299](budget)
-- [No](avail_mail_service)
 - find me something [mexican](cuisine) as well
 - [allahabad](location)
+- find me something [italian](cuisine) in [Gurgaon](location)
+- [700](budget)
+- [sourav.patel9000@gmail.com](email)
 
 ## synonym:4
 - four

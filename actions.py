@@ -63,6 +63,10 @@ class ActionSearchRestaurants(Action):
 					rest["restaurant"]["average_cost_for_two"])
 
 			rest_df = pd.DataFrame.from_dict(rest_dict)
+			email_df = pd.DataFrame.from_dict(rest_dict)
+
+			if(email_df.shape[0] > 10):
+				email_df = email_df.head(10).reset_index(drop=True)
 
 			if(rest_df.shape[0] > 5):
 				rest_df = rest_df.head(5).reset_index(drop=True)
@@ -91,8 +95,7 @@ class ActionSearchRestaurants(Action):
 							{0}
   							</body>
 							</html>
-							""".format(rest_df.to_html())
-		print(email_payload)
+							""".format(email_df.to_html())
 		return 
 
 	def filter_restaurant_by_budget(self, budget, restaurant_list):
