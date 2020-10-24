@@ -52,7 +52,8 @@ class ActionSearchRestaurants(Action):
 			print('Length of filtered : ', len(filtered_rest))
 
 			if len(filtered_rest) == 0: 
-				response = "Could not find any restaurants"
+				dispatcher.utter_message("     Could not find any restaurants")
+				return[AllSlotsReset()]
 			else:
 				response = "Showing you the top rated restaurant(s) : \n"
 					
@@ -93,7 +94,6 @@ class ActionSearchRestaurants(Action):
 							+ "\n")
 				order += 1
 
-        
 		dispatcher.utter_message("     "+response)
 		global email_payload
 		email_df.index = email_df.index + 1
