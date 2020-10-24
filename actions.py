@@ -51,15 +51,21 @@ class ActionSearchRestaurants(Action):
 
 			print('Length of filtered : ', len(filtered_rest))
 
+			if len(filtered_rest) == 0: 
+				response = "Could not find any restaurants"
+			else:
+				response = "Showing you the top rated restaurant(s) : \n"
+					
+					
 			rest_dict = {'Name': [], 'Address': [],
-						 'Rating': [], 'Cast for Two': []}
+						 'Rating': [], 'Avg. Cost': []}
 			for rest in filtered_rest:
 				rest_dict['Name'].append(rest["restaurant"]["name"])
 				rest_dict['Address'].append(
 					rest["restaurant"]["location"]["address"])
 				rest_dict['Rating'].append(
 					rest["restaurant"]["user_rating"]["aggregate_rating"])
-				rest_dict['Cast for Two'].append(
+				rest_dict['Avg. Cost'].append(
 					rest["restaurant"]["average_cost_for_two"])
 
 			rest_df = pd.DataFrame.from_dict(rest_dict)
@@ -87,9 +93,11 @@ class ActionSearchRestaurants(Action):
 							+ "\n")
 				order += 1
 
-		dispatcher.utter_message("-----"+response)
+        
+		dispatcher.utter_message("     "+response)
 		global email_payload
-		email_payload = """\<html>
+		email_df.index = email_df.index + 1
+		email_payload = """<html>
   							<head></head>
   							<body>
 							{0}
@@ -219,13 +227,14 @@ class ActionSendMail(Action):
 
 	def run(self, dispatcher, tracker, domain):
 
+		cuisine = tracker.get_slot("cuisine").title()
+		location = tracker.get_slot("location").title()
 		email_Id = tracker.get_slot('email')
 		email_Payload = email_payload
 		# print(email_Payload)
-		mail_content = '''Hello,
-		Here are your requested Top 5 Restaurants ordered by average user ratings.
-		
-		Thank You'''
+		mail_content = '''Hola! \n\nPlease find the list of {0} Restaurants in {1}\n\n'''.format(cuisine, location)
+
+		mail_content2 = '''\n\nThank you!'''
 
 		# The mail addresses and password
 		sender_address = 'rasabot92@gmail.com'
@@ -236,10 +245,12 @@ class ActionSendMail(Action):
 		message['From'] = sender_address
 		message['To'] = receiver_address
 		# The subject line
-		message['Subject'] = 'Here are your requested Top 5 Restaurants :)'
+		message['Subject'] = 'Rasa Bot : {0} Restaurants in {1}'.format(cuisine, location)
 		# The body and the attachments for the mail
 		message.attach(MIMEText(mail_content, 'plain'))
 		message.attach(MIMEText(email_Payload, 'html'))
+		message.attach(MIMEText(mail_content2, 'plain'))
+		
 		# Create SMTP session for sending the mail
 		session = smtplib.SMTP('smtp.gmail.com', 587)  # use gmail with port
 		session.starttls()  # enable security
