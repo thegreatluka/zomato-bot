@@ -49,8 +49,6 @@
 - I am looking for [asian fusion](cuisine) food
 - I am looking a restaurant in [294328](location)
 - in [Gurgaon](location)
-- [South Indian](cuisine)
-- [North Indian](cuisine)
 - [Italian](cuisine)
 - [Chinese]{"entity": "cuisine", "value": "chinese"}
 - [chinese](cuisine)
@@ -59,7 +57,6 @@
 - in [delhi](location)
 - I am looking for some restaurants in [Mumbai](location)
 - I am looking for [mexican indian fusion](cuisine)
-- can you book a table in [rome](location) in a [moderate]{"entity": "price", "value": "mid"} price range with [british](cuisine) food for [four]{"entity": "people", "value": "4"} people
 - [central](location) [indian](cuisine) restaurant
 - please help me to find restaurants in [pune](location)
 - Please find me a restaurantin [bangalore](location)
@@ -128,32 +125,36 @@
 - any [mid range]{"entity": "budget", "value": "700"} restaurants in [patna](location)
 - any [mid-range]{"entity": "budget", "value": "700"} restaurants in [patna](location)
 - any [average]{"entity": "budget", "value": "700"} restaurants in [patna](location)
-
+- find me some [cheapest]{"entity": "budget", "value": "299"} restraunts in [Thiruvananthapuram](location)
 - [South Indian](cuisine)
-- [No](avail_mail_service)
+- any [mid range]{"entity": "budget", "value": "700"} [north indian](cuisine) options in [Visakhapatnam](location)
+- show me some [pocket friendly]{"entity": "budget", "value": "299"} options in [Raipur](location)
+- [American](cuisine)
 
 ## synonym:299
 - cheap
 - cheapest
 - pocket-friendly
 - wallet-friendly
+- low end
 - pocket friendly
 - wallet friendly
 - low cost
-- low end
 
 ## synonym:4
 - four
 
 ## synonym:700
-- average
 - mid range
+- mid-range
+- average
 
 ## synonym:701
 - expensive
 - high-end
-- high-cost
 - high end
+- high-cost
+- highcost
 - high cost
 
 ## synonym:Ahmedabad

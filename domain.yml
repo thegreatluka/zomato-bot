@@ -13,8 +13,6 @@ entities:
 - cuisine
 - email
 - location
-- people
-- price
 slots:
   avail_mail_service:
     type: categorical

@@ -395,3 +395,55 @@
     - action_slot_reset
     - reset_slots
     - utter_goodbye
+
+* restaurant_search{"location": "Thiruvananthapuram", "budget": "299"}
+    - slot{"budget": "299"}
+    - slot{"location": "Thiruvananthapuram"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "South Indian"}
+    - slot{"cuisine": "South Indian"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "No"}
+    - slot{"avail_mail_service": "No"}
+    - action_slot_reset
+    - reset_slots
+    - utter_goodbye
+
+* restaurant_search{"budget": "700", "cuisine": "north indian", "location": "Visakhapatnam"}
+    - slot{"budget": "700"}
+    - slot{"cuisine": "north indian"}
+    - slot{"location": "Visakhapatnam"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "No"}
+    - slot{"avail_mail_service": "No"}
+    - action_slot_reset
+    - reset_slots
+    - utter_goodbye
+
+* restaurant_search{"budget": "299", "location": "Raipur"}
+    - slot{"budget": "299"}
+    - slot{"location": "Raipur"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "American"}
+    - slot{"cuisine": "American"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "No"}
+    - slot{"avail_mail_service": "No"}
+    - action_slot_reset
+    - reset_slots
+    - utter_goodbye

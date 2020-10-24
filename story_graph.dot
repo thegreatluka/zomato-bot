@@ -10,8 +10,8 @@ digraph  {
 7 [class=active, fontsize=12, label=action_slot_reset];
 8 [class=active, fontsize=12, label=utter_goodbye];
 9 [class="intent dashed active", label="  ?  ", shape=rect];
-10 [class="intent active", fillcolor=lightblue, label="any low end restaurants in patna", shape=rect, style=filled];
-11 [class="intent active", fillcolor=lightblue, label="South Indian", shape=rect, style=filled];
+10 [class="intent active", fillcolor=lightblue, label="show me some pocket friendly options in Raipur", shape=rect, style=filled];
+11 [class="intent active", fillcolor=lightblue, label=American, shape=rect, style=filled];
 12 [class="intent active", fillcolor=lightblue, label=No, shape=rect, style=filled];
 0 -> "-1"  [class="", key=NONE, label=""];
 0 -> 1  [class=active, key=NONE, label=""];
