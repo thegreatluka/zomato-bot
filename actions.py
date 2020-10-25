@@ -219,7 +219,7 @@ class ActionValidateEmail(Action):
 		if not email:
 			email_validity = "invalid"
 		else:
-			regex = "^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$"
+			regex = "^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}?[.]?\w{0,3}s$"
 			if(re.search(regex, email)):
 				email_validity = "valid"
 

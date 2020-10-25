@@ -24,8 +24,8 @@
 - sounds really good
 - thanks
 - absolutely
-- fine 
 - [Yes](avail_mail_service)
+- [yes](avail_mail_service). Please
 
 ## intent:goodbye
 - bye
@@ -59,6 +59,9 @@
 - good afternoon
 - dear sir
 - yo
+- Hi
+- Hello!
+- Hey
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -156,6 +159,27 @@
 - any [mid range]{"entity": "budget", "value": "700"} [north indian](cuisine) options in [Visakhapatnam](location)
 - show me some [pocket friendly]{"entity": "budget", "value": "299"} options in [Raipur](location)
 - [American](cuisine)
+- Can you suggest some good restaurants in [kolkata](location)
+- [american](cuisine)
+- [<300]{"entity": "budget", "value": "299"}
+- [>700]{"entity": "budget", "value": "701"}
+- [300-700]{"entity": "budget", "value": "700"}
+- I’m hungry. Looking out for some good restaurants
+- Can you suggest some good restaurants in [Rishikesh](location)
+- Okay. Show me some in [Allahabad](location)
+- please [send](avail_mail_service) it on [sourav.sunil2004@gmail.com](email)
+- in [mubaim](location)
+- in [Mumbai](location)
+- [jddk.2jmd@kdl.co.in](email)
+- I’m hungry. Looking out for some good [chinese](cuisine) restaurants in [chandigarh](location)
+- Can you suggest some good restaurants in [Rishikesh](location)
+- Okay. Show me some in [Allahabad](location)
+- I’ll prefer [chines]{"entity": "cuisine", "value": "chinese"}
+- [>700]{"entity": "budget", "value": "701"}
+- [yes](avail_mail_service). Please [send](avail_mail_service) it to [xyz@sth.edu](email)
+
+## intent:denial
+- [no](avail_mail_service). thanks
 
 ## synonym:299
 - cheap
@@ -165,6 +189,7 @@
 - low end
 - pocket friendly
 - wallet friendly
+- <300
 - low cost
 
 ## synonym:4
@@ -174,6 +199,7 @@
 - mid range
 - mid-range
 - average
+- 300-700
 
 ## synonym:701
 - expensive
@@ -181,44 +207,18 @@
 - high end
 - high-cost
 - highcost
+- >700
 - high cost
-
-## synonym:chinese
-- chines
-- Chinese
-- Chines
-
-## synonym:south indian
-- south-indian
-- southindian
-- south-indina
-- South Indian
- 
-## synonym:north indian
-- north-indian
-- northindian
-- north-indina
-- North Indian
-
-## synonym:mexican
-- mexicun
-- mehico
-- mexicano
-
-## synonym:american
-- america
-- americun
-- americana
-
-## synonym:italian
-- talian
-- italiun
-- continental
 
 ## synonym:Ahmedabad
 - Ahemdabad
 - ahemdbad
 - ahemadabad
+
+## synonym:Amritsar
+- amritser
+- amratsar
+- amritsur
 
 ## synonym:Bengaluru
 - bangalore
@@ -226,11 +226,14 @@
 - bnglore
 - bengluru
 
+## synonym:Chandigarh
+- chandigad
+- chandighar
+
 ## synonym:Chennai
 - Madras
 - chenai
 - madrass
-
 
 ## synonym:Delhi
 - New Delhi
@@ -243,6 +246,11 @@
 - Hydrabad
 - hyd
 - hydrebad
+
+## synonym:Kochi
+- kochi
+- cochin
+- ernakulam
 
 ## synonym:Kolkata
 - Calcutta
@@ -258,41 +266,59 @@
 - mysuru
 - Mysuru
 
-## synonym:Kochi
-- kochi
-- cochin
-- ernakulam
-
-## synonym:Visakhapatnam
-- vizag
-- vishakapatnam
-
 ## synonym:Thiruvananthapuram
 - trivandrum
 - travancore
 - thiruvandapuram
 
-## synonym:Amritsar
-- amritser
-- amratsar
-- amritsur
+## synonym:Visakhapatnam
+- vizag
+- vishakapatnam
 
-## synonym:Chandigarh
-- chandigad
-- chandighar
+## synonym:american
+- america
+- americun
+- americana
+
+## synonym:chinese
+- chines
+- Chinese
+- Chines
+
+## synonym:italian
+- talian
+- italiun
+- continental
+
+## synonym:mexican
+- mexicun
+- mehico
+- mexicano
 
 ## synonym:mid
 - moderate
+
+## synonym:north indian
+- north-indian
+- northindian
+- north-indina
+- North Indian
+
+## synonym:south indian
+- south-indian
+- southindian
+- south-indina
+- South Indian
 
 ## synonym:vegetarian
 - veggie
 - vegg
 
-## regex:greet
-- hey[^\s]*
+## regex:goodbye
+- bye[^\s]*
 
 ## regex:greet
-- bye[^\s]*
+- hey[^\s]*
 
 ## regex:pincode
 - [0-9]{6}
