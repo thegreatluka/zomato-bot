@@ -600,3 +600,87 @@
     - utter_confirm_email
     - action_slot_reset
     - reset_slots
+
+* restaurant_search{"avail_mail_service": "send", "budget": "701", "cuisine": "italian", "location": "Delhi", "email": "sourav.patel9000@gmail.com"}
+    - slot{"avail_mail_service": "send"}
+    - slot{"budget": "701"}
+    - slot{"cuisine": "italian"}
+    - slot{"email": "sourav.patel9000@gmail.com"}
+    - slot{"location": "Delhi"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots
+
+* restaurant_search{"budget": "299", "cuisine": "arabian", "location": "leh", "email": "sodd0gmail.com"}
+    - slot{"budget": "299"}
+    - slot{"cuisine": "arabian"}
+    - slot{"email": "sodd0gmail.com"}
+    - slot{"location": "leh"}
+    - action_validate_location
+    - slot{"location_validity": "invalid"}
+    - utter_location_invalid
+    - utter_ask_location_retry
+* restaurant_search{"location": "Hyderabad"}
+    - slot{"location": "Hyderabad"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "invalid"}
+    - utter_cuisine_invalid
+    - utter_ask_cuisine_retry
+* restaurant_search{"cuisine": "north indian"}
+    - slot{"cuisine": "north indian"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - action_validate_email
+    - slot{"email_validity": "invalid"}
+    - utter_email_invalid
+    - utter_ask_email_retry
+* restaurant_search{"email": "souravpatel51@gmail.com"}
+    - slot{"email": "souravpatel51@gmail.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots
+
+* greet
+    - utter_greet
+* restaurant_search{"budget": "299", "cuisine": "south indian", "krnool": "krnool", "avail_mail_service": "mail", "email": "sourav.ssunil2004@gkll"}
+    - slot{"avail_mail_service": "mail"}
+    - slot{"budget": "299"}
+    - slot{"cuisine": "south indian"}
+    - slot{"email": "sourav.ssunil2004@gkll"}
+    - action_validate_location
+    - slot{"location_validity": "invalid"}
+    - utter_location_invalid
+    - utter_ask_location_retry
+* restaurant_search{"location": "kurnool"}
+    - slot{"location": "kurnool"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - action_search_restaurants
+    - action_validate_email
+    - slot{"email_validity": "invalid"}
+    - utter_email_invalid
+    - utter_ask_email_retry
+* restaurant_search{"email": "sourav.sunil2004@gmail.com"}
+    - slot{"email": "sourav.sunil2004@gmail.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots

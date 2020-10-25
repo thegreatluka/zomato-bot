@@ -2,8 +2,8 @@ session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- greet
 - restaurant_search
+- greet
 - denial
 - affirm
 - goodbye
@@ -13,6 +13,7 @@ entities:
 - budget
 - cuisine
 - email
+- krnool
 - location
 slots:
   avail_mail_service:

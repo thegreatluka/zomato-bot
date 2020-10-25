@@ -172,11 +172,15 @@
 - in [Mumbai](location)
 - [jddk.2jmd@kdl.co.in](email)
 - I’m hungry. Looking out for some good [chinese](cuisine) restaurants in [chandigarh](location)
-- Can you suggest some good restaurants in [Rishikesh](location)
-- Okay. Show me some in [Allahabad](location)
 - I’ll prefer [chines]{"entity": "cuisine", "value": "chinese"}
-- [>700]{"entity": "budget", "value": "701"}
 - [yes](avail_mail_service). Please [send](avail_mail_service) it to [xyz@sth.edu](email)
+- [send](avail_mail_service) me list of [high end]{"entity": "budget", "value": "701"} [italian](cuisine) restaurants in [Delhi](location) on [sourav.patel9000@gmail.com](email)
+- get me list of [cheap]{"entity": "budget", "value": "299"} [arabian](cuisine) options in [leh](location) on [sodd0gmail.com](email)
+- i meant [hyd]{"entity": "location", "value": "Hyderabad"}
+- get me someting [north indian](cuisine)
+- i want details of [cheap]{"entity": "budget", "value": "299"} [south indian](cuisine) restraunts in [krnool](location) on my [mail](avail_mail_service) [sourav.ssunil2004@gkll](email)
+- [kurnool](location)
+- oh i think its [sourav.sunil2004@gmail.com](email)
 
 ## intent:denial
 - [no](avail_mail_service). thanks
@@ -243,8 +247,8 @@
 - nayidilli
 
 ## synonym:Hyderabad
-- Hydrabad
 - hyd
+- Hydrabad
 - hydrebad
 
 ## synonym:Kochi
