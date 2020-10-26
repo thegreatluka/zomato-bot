@@ -205,14 +205,16 @@
 - [345665](budget)
 - [Mangolian](cuisine)
 - [Goa](location)
-- [Mangolian](cuisine)
 - [Chinese]{"entity": "cuisine", "value": "chinese"}[Chinese]{"entity": "cuisine", "value": "chinese"}
 - [Thrissur](location)
 - [701](budget)[701](budget)
 - [vinod@enwidth.com](email)
+- find me [south indian](cuisine) in [madras]{"entity": "location", "value": "Chennai"}
+- [700](budget)[700](budget)
 
 ## intent:denial
 - [no](avail_mail_service). thanks
+- [no](avail_mail_service)
 
 ## synonym:299
 - cheap
