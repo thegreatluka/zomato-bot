@@ -26,6 +26,7 @@
 - absolutely
 - [Yes](avail_mail_service)
 - [yes](avail_mail_service). Please
+- [Yes](avail_mail_service) please
 
 ## intent:goodbye
 - bye
@@ -62,6 +63,24 @@
 - Hi
 - Hello!
 - Hey
+
+## intent:out_of_scope
+- fjshgjhgjkdfhgjkdghdkfghdfkg
+- dddddddd
+- fsdhfjshfjsdfh
+- ffff
+- Help me
+- Make me
+- java
+- 398474345
+- 745435835739786566596
+- 434534534hfhfshjdfg56546hjkh
+- *************
+- ejhdjead
+- [dream of unicorns](out_of_scope)
+- reurewurhj4rh34
+- Deeddddddddddd
+- Buhhahaha
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -181,6 +200,16 @@
 - i want details of [cheap]{"entity": "budget", "value": "299"} [south indian](cuisine) restraunts in [krnool](location) on my [mail](avail_mail_service) [sourav.ssunil2004@gkll](email)
 - [kurnool](location)
 - oh i think its [sourav.sunil2004@gmail.com](email)
+- Am hungry
+- [Delhi](location)
+- [345665](budget)
+- [Mangolian](cuisine)
+- [Goa](location)
+- [Mangolian](cuisine)
+- [Chinese]{"entity": "cuisine", "value": "chinese"}[Chinese]{"entity": "cuisine", "value": "chinese"}
+- [Thrissur](location)
+- [701](budget)[701](budget)
+- [vinod@enwidth.com](email)
 
 ## intent:denial
 - [no](avail_mail_service). thanks
@@ -194,6 +223,8 @@
 - pocket friendly
 - wallet friendly
 - <300
+- cheaper
+- low
 - low cost
 
 ## synonym:4
@@ -213,6 +244,7 @@
 - highcost
 - >700
 - high cost
+- high
 
 ## synonym:Ahmedabad
 - Ahemdabad
