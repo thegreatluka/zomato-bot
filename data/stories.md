@@ -793,3 +793,87 @@
     - action_slot_reset
     - reset_slots
     - utter_goodbye
+
+* restaurant_search{"cuisine": "chinese", "location": "Mumbai"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "Mumbai"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "700"}
+    - slot{"budget": "700"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "send", "email": "vinod@enwidth.com"}
+    - slot{"avail_mail_service": "send"}
+    - slot{"email": "vinod@enwidth.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots
+* affirm
+    - utter_goodbye
+
+* restaurant_search{"cuisine": "chinese", "location": "Allahabad"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "Allahabad"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "701"}
+    - slot{"budget": "701"}
+    - action_search_restaurants
+
+* restaurant_search{"cuisine": "chinese", "location": "delhi"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "delhi"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "701"}
+    - slot{"budget": "701"}
+    - action_search_restaurants
+
+* restaurant_search{"cuisine": "chinese", "location": "delhi"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "delhi"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "701"}
+    - slot{"budget": "701"}
+    - action_search_restaurants
+
+* restaurant_search{"cuisine": "chinese", "location": "delhi"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "delhi"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "701"}
+    - slot{"budget": "701"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "send", "email": "vinod@enwidth.com"}
+    - slot{"avail_mail_service": "send"}
+    - slot{"email": "vinod@enwidth.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots
+* affirm
+    - utter_goodbye
