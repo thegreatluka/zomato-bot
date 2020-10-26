@@ -684,3 +684,93 @@
     - utter_confirm_email
     - action_slot_reset
     - reset_slots
+* out_of_scope
+    - utter_default
+* out_of_scope{"out_of_scope": "dream of unicorns"}
+    - utter_default
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Delhi"}
+    - slot{"location": "Delhi"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "345665"}
+    - slot{"budget": "345665"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "No"}
+    - slot{"avail_mail_service": "No"}
+    - action_slot_reset
+    - reset_slots
+    - utter_goodbye
+
+* restaurant_search{"cuisine": "Mangolian"}
+    - slot{"cuisine": "Mangolian"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "invalid"}
+    - utter_cuisine_invalid
+    - utter_ask_cuisine_retry
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_location
+* restaurant_search{"location": "Goa"}
+    - slot{"location": "Goa"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "700"}
+    - slot{"budget": "700"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* restaurant_search{"avail_mail_service": "No"}
+    - slot{"avail_mail_service": "No"}
+    - action_slot_reset
+    - reset_slots
+    - utter_goodbye
+
+* out_of_scope
+    - utter_default
+* out_of_scope
+    - utter_default
+* restaurant_search{"cuisine": "Mangolian"}
+    - slot{"cuisine": "Mangolian"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "invalid"}
+    - utter_cuisine_invalid
+    - utter_ask_cuisine_retry
+* out_of_scope
+    - utter_ask_cuisine_retry
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_location
+* restaurant_search{"location": "Thrissur"}
+    - slot{"location": "Thrissur"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "701"}
+    - slot{"budget": "701"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* affirm{"avail_mail_service": "Yes"}
+    - slot{"avail_mail_service": "Yes"}
+    - utter_ask_email
+* restaurant_search{"email": "vinod@enwidth.com"}
+    - slot{"email": "vinod@enwidth.com"}
+    - action_validate_email
+    - slot{"email_validity": "valid"}
+    - action_send_mail
+    - utter_confirm_email
+    - action_slot_reset
+    - reset_slots

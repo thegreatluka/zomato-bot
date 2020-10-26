@@ -184,7 +184,7 @@ class ActionValidateCuisine(Action):
 		return "action_validate_cuisine"
 
 	def run(self, dispatcher, tracker, domain):
-
+		print("__________________", tracker.get_slot("cuisine"))
 		cuisine = tracker.get_slot("cuisine")
 		cuisine_validity = "valid"
 
@@ -219,7 +219,7 @@ class ActionValidateEmail(Action):
 		if not email:
 			email_validity = "invalid"
 		else:
-			regex = "^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}?[.]?\w{0,3}s$"
+			regex = "^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}?[.]?\w{0,3}$"
 			if(re.search(regex, email)):
 				email_validity = "valid"
 

@@ -3,9 +3,10 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - restaurant_search
+- affirm
+- out_of_scope
 - greet
 - denial
-- affirm
 - goodbye
 - stop
 entities:
@@ -15,6 +16,7 @@ entities:
 - email
 - krnool
 - location
+- out_of_scope
 slots:
   avail_mail_service:
     type: categorical
