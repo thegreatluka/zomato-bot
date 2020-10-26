@@ -684,6 +684,7 @@
     - utter_confirm_email
     - action_slot_reset
     - reset_slots
+    
 * out_of_scope
     - utter_default
 * out_of_scope{"out_of_scope": "dream of unicorns"}
@@ -774,3 +775,21 @@
     - utter_confirm_email
     - action_slot_reset
     - reset_slots
+
+* restaurant_search{"cuisine": "south indian", "location": "Chennai"}
+    - slot{"cuisine": "south indian"}
+    - slot{"location": "Chennai"}
+    - action_validate_location
+    - slot{"location_validity": "valid"}
+    - action_validate_cuisine
+    - slot{"cuisine_validity": "valid"}
+    - utter_ask_budget
+* restaurant_search{"budget": "700"}
+    - slot{"budget": "700"}
+    - action_search_restaurants
+    - utter_avail_mail_service
+* denial{"avail_mail_service": "no"}
+    - slot{"avail_mail_service": "no"}
+    - action_slot_reset
+    - reset_slots
+    - utter_goodbye

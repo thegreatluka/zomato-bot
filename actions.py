@@ -197,7 +197,7 @@ class ActionValidateCuisine(Action):
 				"italian",
 				"mexican",
 				"north indian",
-				"south indian",
+				"south indian"
 			]
 
 			cuisine_validity = (
