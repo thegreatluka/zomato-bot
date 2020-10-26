@@ -27,6 +27,7 @@
 - [Yes](avail_mail_service)
 - [yes](avail_mail_service). Please
 - [Yes](avail_mail_service) please
+- Thank you!
 
 ## intent:goodbye
 - bye
@@ -69,14 +70,14 @@
 - dddddddd
 - fsdhfjshfjsdfh
 - ffff
-- Help me
+- [Help me](out_of_scope)
 - Make me
 - java
-- 398474345
+- [398474345](out_of_scope)
 - 745435835739786566596
-- 434534534hfhfshjdfg56546hjkh
+- [434534534hfhfshjdfg56546hjkh](out_of_scope)
 - *************
-- ejhdjead
+- [ejhdjead](out_of_scope)
 - [dream of unicorns](out_of_scope)
 - reurewurhj4rh34
 - Deeddddddddddd
@@ -205,12 +206,16 @@
 - [345665](budget)
 - [Mangolian](cuisine)
 - [Goa](location)
-- [Chinese]{"entity": "cuisine", "value": "chinese"}[Chinese]{"entity": "cuisine", "value": "chinese"}
 - [Thrissur](location)
-- [701](budget)[701](budget)
 - [vinod@enwidth.com](email)
 - find me [south indian](cuisine) in [madras]{"entity": "location", "value": "Chennai"}
-- [700](budget)[700](budget)
+- find me [chinese](cuisine) in [bombay]{"entity": "location", "value": "Mumbai"}
+- please do [send](avail_mail_service) it to [vinod@enwidth.com](email)
+- find me [chinese](cuisine) in [Allahabad](location)
+- [>700]{"entity": "budget", "value": "701"}
+- find me [chinese](cuisine) in [delhi](location)
+- find me [chines]{"entity": "cuisine", "value": "chinese"} in [delhi](location)
+- do [send](avail_mail_service) it to [vinod@enwidth.com](email)
 
 ## intent:denial
 - [no](avail_mail_service). thanks
@@ -237,6 +242,7 @@
 - mid-range
 - average
 - 300-700
+- 300-700 range
 
 ## synonym:701
 - expensive
@@ -269,6 +275,7 @@
 - chandighar
 
 ## synonym:Chennai
+- madras
 - Madras
 - chenai
 - madrass

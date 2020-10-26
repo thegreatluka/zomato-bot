@@ -119,13 +119,18 @@ class ActionSearchRestaurants(Action):
 		filtered_restaurant_list = []
 		rangeMin = 0
 		rangeMax = 999999
+		try:
+			 budget = int(float(budget))
+			 print(True)
+		except:
+			 budget = 500
 
-		if int(budget) <= 299:
+		if budget <= 299:
 			rangeMax = 299
-		elif int(budget) >= 300 and int(budget) <= 700:
+		elif budget >= 300 and budget <= 700:
 			rangeMin = 300
 			rangeMax = 700
-		elif int(budget) >= 701:
+		elif budget >= 701:
 			rangeMin = 701
 		else:
 			rangeMin = 0
@@ -138,6 +143,13 @@ class ActionSearchRestaurants(Action):
 				filtered_restaurant_list.append(restaurant)
 
 		return filtered_restaurant_list
+
+def RepresentsInt(s):
+    try: 
+        int(s)
+        return True
+    except ValueError:
+        return False
 
 
 class ActionValidateLocation(Action):
@@ -184,7 +196,6 @@ class ActionValidateCuisine(Action):
 		return "action_validate_cuisine"
 
 	def run(self, dispatcher, tracker, domain):
-		print("__________________", tracker.get_slot("cuisine"))
 		cuisine = tracker.get_slot("cuisine")
 		cuisine_validity = "valid"
 
@@ -253,7 +264,7 @@ class ActionSendMail(Action):
 		message['From'] = sender_address
 		message['To'] = receiver_address
 		# The subject line
-		message['Subject'] = 'Rasa Bot : {0} Restaurants in {1}'.format(cuisine, location)
+		message['Subject'] = 'Foodie Bot : {0} Restaurants in {1}'.format(cuisine, location)
 		# The body and the attachments for the mail
 		message.attach(MIMEText(mail_content, 'plain'))
 		message.attach(MIMEText(email_Payload, 'html'))
@@ -268,7 +279,7 @@ class ActionSendMail(Action):
 		session.sendmail(sender_address, receiver_address, text)
 		session.quit()
 		print('Mail Sent')
-
+		
 
 class ActionSlotReset(Action):
 	def name(self):
